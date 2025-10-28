@@ -1,0 +1,182 @@
+/* --- Contenedor Principal --- */
+.videos-section {
+  display: flex;
+  font-family: var(--font-regular-family);
+  background-color: var(--background-color);
+  color: var(--color-white);
+  padding: 6rem 0;
+}
+
+.videos-container {
+  display: block;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+/* --- Título --- */
+.videos-title-container {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.videos-title-container h2 {
+  font-size: 3rem;
+  color: var(--color-white);
+  position: relative;
+  display: inline-block;
+}
+
+/* Línea de acento */
+.videos-title-container h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -15px;
+  width: 80px;
+  height: 4px;
+  background-color: var(--line-color);
+}
+
+/* --- Grid de Layout Principal --- */
+.videos-layout-grid {
+  display: grid;
+  /* El video ocupa 2/3 y la info 1/3 */
+  grid-template-columns: 2fr 1fr;
+  /* Definimos las áreas */
+  grid-template-areas:
+    "featured featured-info"
+    "thumbnails thumbnails";
+  gap: 2rem;
+}
+
+/* --- 1. Video Destacado --- */
+.video-featured {
+  grid-area: featured; /* Asignamos el área */
+  background-color: #111;
+  border-radius: 10px;
+  overflow: hidden; /* Para que el iframe no se salga */
+}
+
+/* Truco para que el iframe sea responsive (16:9) */
+.video-responsive-embed {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+}
+
+.video-responsive-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* --- 2. Info del Video Destacado --- */
+.video-featured-info {
+  grid-area: featured-info; /* Asignamos el área */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Alinea al inicio */
+}
+
+.video-featured-info .video-subtitle {
+  text-transform: uppercase;
+  color: var(--line-color); /* Color de acento */
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.video-featured-info h3 {
+  font-size: 1.8rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--color-white);
+}
+
+.video-featured-info p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #c0c0c0;
+}
+
+/* --- 3. Grid de Thumbnails --- */
+.video-thumbnail-grid {
+  grid-area: thumbnails; /* Asignamos el área */
+  display: grid;
+  /* Grid escalable, como en tus servicios */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  border-top: 1px solid #333;
+  padding-top: 2rem;
+}
+
+.video-thumbnail {
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid transparent; /* Borde para el estado "active" */
+}
+
+.video-thumbnail:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+}
+
+.video-thumbnail img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 16 / 9; /* Asegura la proporción */
+}
+
+.video-thumbnail h4 {
+  font-size: 1rem;
+  padding: 1rem;
+  margin: 0;
+  text-align: center;
+  color: #c0c0c0;
+  /* Evita que el texto se parta en dos líneas */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* --- Estilo para el video activo --- */
+.video-thumbnail.active {
+  border-color: var(--color-button); /* Borde amarillo */
+  box-shadow: 0 0 15px var(--color-button-shadow, #f0c41933);
+}
+
+.video-thumbnail.active h4 {
+  color: var(--color-white);
+}
+
+/* --- Responsividad --- */
+@media (max-width: 900px) {
+  .videos-layout-grid {
+    /* Apilamos todo en una columna */
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "featured"
+      "featured-info"
+      "thumbnails";
+  }
+
+  .video-featured-info {
+    text-align: center; /* Centramos el texto en móvil */
+  }
+
+  .video-featured-info .video-subtitle {
+    margin-top: 1rem; /* Espacio extra */
+  }
+}

@@ -1,0 +1,154 @@
+/* --- Contenedor Principal --- */
+.services-section {
+  background-color: var(--background-color);
+  color: var(--color-white);
+  padding: 2rem 0;
+}
+
+.services-container {
+  display: block;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* --- Título --- */
+.services-title-container {
+  text-align: center;
+  margin-bottom: 4rem;
+  font-family: var(--font-bold-family);
+}
+
+.services-title-container h2 {
+  font-size: 3rem;
+  color: var(--color-white);
+  position: relative;
+  display: inline-block;
+}
+
+/* --- Grid de Servicios (La clave de la escalabilidad) --- */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* --- Tarjeta de Servicio (Caja) --- */
+.service-card {
+  background-color: var(--color-card-background);
+  font-family: var(--font-regular-family);
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px #f2e96d;
+}
+
+/* --- Cabecera de la Tarjeta --- */
+.card-header h3 {
+  font-size: 1.8rem;
+  color: var(--color-white);
+  margin: 0 0 0.5rem 0;
+}
+
+.card-header .card-subtitle {
+  font-size: 0.9rem;
+  color: var(--color-white-accent);
+}
+
+/* --- Lista de "Incluye" --- */
+.service-includes {
+  list-style: none;
+  padding-left: 0;
+  margin: 2rem 0;
+  color: #c0c0c0;
+
+  /* --- ⬇️ CAMBIO 2: Eliminamos 'flex-grow' ⬇️ --- */
+  /* 'flex-grow: 1;' se ha borrado. Grid se encarga de esto. */
+}
+
+.service-includes li {
+  position: relative;
+  padding-left: 1.75rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+/* Check de la lista */
+.service-includes li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--line-color);
+  font-weight: 700;
+}
+
+/* --- Footer de la Tarjeta (Precio y Botón) --- */
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #333;
+  padding-top: 1.5rem;
+  margin-top: 1rem;
+}
+
+.service-price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-white);
+  font-family: var(--font-title-family);
+}
+
+/* --- Botón (Reutilizando el estilo de "About") --- */
+.service-button {
+  background-color: var(--color-button);
+  font-family: var(--font-bold-family);
+  color: #000;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.service-button:hover {
+  background-color: #ffffff;
+}
+
+/* --- Estilo Opcional: Tarjeta Destacada --- */
+.service-card.featured {
+  border: 2px solid var(--color-button);
+  position: relative;
+  overflow: hidden;
+}
+
+.featured-badge {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  background-color: var(--color-button);
+  color: #000;
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-bottom-left-radius: 10px;
+}
+
+/* --- Responsividad --- */
+@media (max-width: 480px) {
+  .services-title-container h2 {
+    font-size: 2.5rem;
+  }
+}

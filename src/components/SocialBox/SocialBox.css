@@ -1,0 +1,25 @@
+/* Contenedor principal del componente de redes */
+.socials-sidebar-left {
+  width: 100%;
+  z-index: 5;
+}
+
+.socials-sidebar-left nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.socials-sidebar-left nav a {
+  color: var(--color-white);
+  font-size: 2rem;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.socials-sidebar-left nav a:hover {
+  color: #aaa;
+  transform: scale(1.1);
+}

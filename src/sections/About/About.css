@@ -1,0 +1,157 @@
+/* --- Contenedor Principal --- */
+.about-section {
+  display: flex;
+  background-color: var(--background-color);
+  color: var(--color-white);
+  padding: 3rem 0;
+}
+
+.about-container {
+  display: block; /* 'inline-block' no es necesario aquí */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.about-title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  font-family: var(--font-bold-family);
+}
+
+.about-title-container h2 {
+  font-size: 3rem;
+  color: var(--color-white);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-family: var(--font-regular-family);
+  gap: 3rem;
+  margin-top: 4rem;
+  align-items: center;
+}
+
+/* --- Columna de Imagen --- */
+.about-image-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-image-main {
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  object-fit: cover;
+  z-index: 3;
+  width: 100%;
+  height: 400px;
+}
+
+.about-image-secondary {
+  display: none;
+}
+
+/* --- Columna de Texto --- */
+.about-text-column {
+  z-index: 5;
+}
+
+.about-text-column h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+/* Línea de acento debajo del título */
+.about-text-column h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 60px;
+  height: 4px;
+  background-color: var(--line-color);
+}
+
+.about-text-column p {
+  font-size: 1.1rem; /* 17px */
+  line-height: 1.7;
+  color: var(--color-white);
+  margin-bottom: 2rem;
+}
+
+.about-text-column blockquote {
+  border-left: 4px solid var(--line-color); /* Verde Neón */
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  font-size: 1.2rem; /* 19px */
+  color: #ffffff;
+}
+
+.about-button {
+  background-color: var(--color-button);
+  font-family: var(--font-bold-family);
+  color: var(--background-color);
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.about-button:hover {
+  background-color: #ffffff;
+  color: #000;
+}
+
+/* --- Responsividad para Tablets y Móviles --- */
+
+@media (max-width: 900px) {
+  /* --- ESTA ES LA CORRECCIÓN PRINCIPAL --- */
+  /* 'about-content' es el 'display: grid', no 'about-container' */
+  .about-content {
+    grid-template-columns: 1fr; /* Apila las columnas */
+    gap: 0; /* El espacio lo dará el margin-bottom de la imagen */
+  }
+
+  .about-image-column {
+    min-height: auto; /* Dejamos que la imagen defina la altura */
+    margin-bottom: 3rem; /* Espacio entre imagen y texto */
+  }
+
+  .about-text-column {
+    text-align: center; /* Centra el texto en móvil */
+  }
+
+  .about-text-column h2::after {
+    left: 50%; /* Centra la línea de acento */
+    transform: translateX(-50%);
+  }
+
+  .about-text-column blockquote {
+    text-align: left; /* Mantiene la cita alineada a la izquierda */
+  }
+}
+
+@media (max-width: 480px) {
+  .about-title-container h2 {
+    font-size: 2.5rem; /* Título un poco más pequeño */
+  }
+
+  .about-image-main {
+    width: 90%; /* Hacemos que no ocupe todo el ancho */
+    height: 300px; /* Reducimos un poco la altura */
+  }
+}

@@ -1,0 +1,91 @@
+@font-face {
+  font-family: "Neue Plak Bold";
+  src: url("/assets/fonts/Neue-plak-bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Neue Plak Regular";
+  src: url("/assets/fonts/Neue-plak-regular.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-bold-family: "Neue Plak Bold", sans-serif;
+  --font-regular-family: "Neue Plak Regular", sans-serif;
+  --background-color: #0d0d0d;
+  --color-white: #ffffff;
+  --color-white-accent: #bfbfbf;
+  --line-color: #87878c;
+  --color-button: #f2bb13;
+  --color-card-background: #262626;
+  --color-cyan-100: #5e88bf;
+  --color-cyan-200: #404040;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #f2f2f2;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #ce0a0a;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
