@@ -9,6 +9,7 @@ import Services from "../sections/Services/Services";
 import Videos from "../sections/Videos/Videos";
 import Footer from "../sections/Footer/Footer";
 import { useLocation } from "react-router-dom";
+import Mixes from "../sections/Mixes/Mixes";
 
 function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -79,6 +80,7 @@ function Home() {
           <About id="about" />
           <Services id="services" />
           <Videos id="videos" />
+          <Mixes id="mixes" />
           <Footer lenis={lenisRef} />
         </>
       )}

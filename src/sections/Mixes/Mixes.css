@@ -1,0 +1,79 @@
+.mixes-section {
+  padding: 4rem 1.5rem;
+  background-color: var(--background-color);
+  font-family: var(--font-regular-family);
+}
+
+.mixes-container {
+  max-width: 72rem; /* 1152px (max-w-6xl) */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Títulos --- */
+.mixes-title {
+  font-family: var(--font-bold-family);
+  font-size: 3rem; /* 36px */
+  font-weight: 700;
+  color: var(--color-white);
+  text-align: center;
+  margin-bottom: 1rem; /* 16px */
+}
+
+.mixes-subtitle {
+  font-size: 1.125rem;
+  color: var(--color-white-accent);
+  text-align: center;
+  margin-bottom: 3rem; /* 48px */
+}
+
+/* --- Grid de Mixes --- */
+.mixes-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 columna en móvil */
+  gap: 2.5rem; /* 40px de espacio entre mixes */
+}
+
+/* --- Contenedor de cada Mix --- */
+.mix-item {
+  width: 100%;
+}
+
+/* Estilos para la atribución de Soundcloud que antes 
+  estaban en línea en tu HTML.
+*/
+.soundcloud-attribution {
+  font-size: 10px;
+  color: #cccccc;
+  line-break: anywhere;
+  word-break: normal;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans,
+    Garuda, Verdana, Tahoma, sans-serif;
+  font-weight: 100;
+  margin-top: 4px; /* Pequeño espacio */
+}
+
+.soundcloud-attribution a {
+  color: #cccccc;
+  text-decoration: none;
+}
+
+.soundcloud-attribution a:hover {
+  text-decoration: underline;
+}
+
+/* --- Responsive para Desktop --- */
+@media (min-width: 768px) {
+  /* tablets y más grandes */
+  .mixes-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    align-items: start; /* Alinea los items arriba */
+  }
+}
+
+*/ .mix-item-soundcloud {
+  align-self: start;
+}
