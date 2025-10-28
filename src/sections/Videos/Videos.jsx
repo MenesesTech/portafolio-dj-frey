@@ -23,11 +23,11 @@ const videosData = [
   },
 ];
 
-const Videos = () => {
+const Videos = ({ id }) => {
   const [currentVideo, setCurrentVideo] = useState(videosData[0]);
 
   return (
-    <section className="videos-section">
+    <section id={id} className="videos-section">
       <div className="videos-container">
         {/* --- TÍTULO DE LA SECCIÓN --- */}
         <div className="videos-title-container">

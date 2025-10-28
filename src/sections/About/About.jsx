@@ -1,8 +1,8 @@
 import "./About.css";
-const About = () => {
+const About = ({ id }) => {
   return (
     <>
-      <section className="about-section">
+      <section id={id} className="about-section">
         <div className="about-container">
           <div className="about-title-container">
             {/* 1. USA 'font-title' para el título */}

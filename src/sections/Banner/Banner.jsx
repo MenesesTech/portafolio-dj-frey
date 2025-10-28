@@ -5,12 +5,12 @@ import SocialBox from "../../components/SocialBox/SocialBox";
 import { useEffect, useState, useMemo, use } from "react";
 import LightRays from "../../components/LightRays/LightRays";
 
-function Banner() {
+function Banner({ id }) {
   const [showLightRays, setShowLightRays] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
-      setShowLightRays(window.scrollY <= 500);
+      setShowLightRays(window.scrollY <= 200);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -22,7 +22,7 @@ function Banner() {
   return (
     <>
       {showLightRays && <LightRays />}
-      <div className="banner-containner">
+      <div id={id} className="banner-containner">
         <Particles />
         {/* --- COLUMNA IZQUIERDA (Logo + Redes) --- */}
         <div className="banner-logo-containner">

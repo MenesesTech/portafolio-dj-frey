@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Lenis from "@studio-freight/lenis";
 import { motion, AnimatePresence } from "framer-motion";
 import "./Home.css";
@@ -8,19 +8,18 @@ import About from "../sections/About/About";
 import Services from "../sections/Services/Services";
 import Videos from "../sections/Videos/Videos";
 import Footer from "../sections/Footer/Footer";
+import { useLocation } from "react-router-dom";
 
 function Home() {
   const [isLoading, setIsLoading] = useState(true);
+  const lenisRef = useRef(null);
+  const location = useLocation();
 
-  // Preloader simulado
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
+    const timer = setTimeout(() => setIsLoading(false), 3000);
     return () => clearTimeout(timer);
   }, []);
 
-  // Scroll suave con Lenis
   useEffect(() => {
     if (!isLoading) {
       const lenis = new Lenis({
@@ -28,6 +27,19 @@ function Home() {
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         smooth: true,
       });
+
+      lenisRef.current = lenis; // 🔹 Guardamos la instancia
+
+      if (location.hash) {
+        const targetId = location.hash.substring(1); // quita el '#'
+        const section = document.getElementById(targetId);
+        if (section) {
+          // Usamos un pequeño timeout para asegurar que todo esté renderizado
+          setTimeout(() => {
+            lenis.scrollTo(section);
+          }, 100); // 100ms de espera
+        }
+      }
 
       function raf(time) {
         lenis.raf(time);
@@ -37,7 +49,7 @@ function Home() {
 
       return () => lenis.destroy();
     }
-  }, [isLoading]);
+  }, [isLoading, location.hash]);
 
   return (
     <>
@@ -46,21 +58,16 @@ function Home() {
           <motion.div
             className="preloader-overlay"
             style={{ zIndex: 10000 }}
-            initial={{ opacity: 1, filter: "blur(0px)" }}
-            exit={{ opacity: 0, filter: "blur(16px)", scale: 1.05 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6 }}
           >
             <motion.img
               src={loadingGif}
               alt="Cargando..."
-              style={{
-                width: "600px",
-                height: "600px",
-                objectFit: "contain",
-              }}
-              initial={{ opacity: 1 }}
+              style={{ width: "600px", height: "600px", objectFit: "contain" }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
+              transition={{ duration: 0.4 }}
             />
           </motion.div>
         )}
@@ -68,11 +75,11 @@ function Home() {
 
       {!isLoading && (
         <>
-          <Banner />
-          <About />
-          <Services />
-          <Videos />
-          <Footer />
+          <Banner id="banner" />
+          <About id="about" />
+          <Services id="services" />
+          <Videos id="videos" />
+          <Footer lenis={lenisRef} />
         </>
       )}
     </>
