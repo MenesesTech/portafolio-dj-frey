@@ -27,15 +27,19 @@ const About = ({ id }) => {
             <div className="about-text-column font-text">
               <p>
                 Desde 2024, me he dedicado a perfeccionar el arte de la mezcla,
-                con el objetivo de llevar cada evento al siguiente nivel. Como
-                DJ y productor, mi especialidad es una vibrante fusión de los
-                ritmos electrónicos más potentes con los éxitos latinos y
-                urbanos que dominan el mundo.
+                con un objetivo claro: transformar cada evento en una
+                experiencia sonora inolvidable. Como DJ y productor, mi estilo
+                combina la energía de la música electrónica —Big Room, Bass
+                House, Dubstep, Trap y Bangers— con la frescura de los ritmos
+                latinos como la cumbia, salsa, merengue y reggaetón. Mi pasión
+                nació en casa, practicando horas interminables con Virtual DJ
+                durante la pandemia. Fue allí donde descubrí que mezclar no solo
+                es sincronizar beats, sino crear emociones, atmósferas y
+                momentos. Hoy, mi misión va más allá de poner música: diseño el
+                soundtrack de cada noche, conectando culturas, géneros y
+                generaciones. Porque, como me gusta decir:
               </p>
-              <blockquote>
-                "Mi misión no es solo poner música, es crear el soundtrack de
-                una noche inolvidable."
-              </blockquote>
+              <blockquote>“Si puedes imaginarlo, puedes mezclarlo.”</blockquote>
               <a
                 className="about-button"
                 href={whatsappUrl}
