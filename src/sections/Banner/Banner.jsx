@@ -1,4 +1,4 @@
-import "./banner.css";
+import "./Banner.css";
 import Particles from "../../components/Particles/Particles";
 import SocialBox from "../../components/SocialBox/SocialBox";
 
