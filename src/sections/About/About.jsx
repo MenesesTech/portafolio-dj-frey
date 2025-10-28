@@ -1,5 +1,9 @@
 import "./About.css";
 const About = ({ id }) => {
+  const phoneNumber = "51916387047";
+  const message = "Hola! Quería contratar a DJ Frey como DJ";
+  const encodedMessage = encodeURIComponent(message);
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
   return (
     <>
       <section id={id} className="about-section">
@@ -12,7 +16,7 @@ const About = ({ id }) => {
             {/* --- COLUMNA DE IMAGEN --- */}
             <div className="about-image-column">
               <img
-                src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=500&q=80"
+                src="/assets/img/about-me-photo.webp"
                 alt="DJ Frey mezclando en un evento"
                 className="about-image-main"
               />
@@ -32,7 +36,14 @@ const About = ({ id }) => {
                 "Mi misión no es solo poner música, es crear el soundtrack de
                 una noche inolvidable."
               </blockquote>
-              <button className="about-button">Contáctame</button>
+              <a
+                className="about-button"
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Contáctame
+              </a>
             </div>
           </div>
         </div>

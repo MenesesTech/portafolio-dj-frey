@@ -1,6 +1,17 @@
 import "./Services.css";
 
 const Services = ({ id }) => {
+  const phoneNumber = "51916387047";
+  const message1 =
+    "Hola DJ FREY, quiero una cotización sobre el paquete Basico.";
+  const message2 =
+    "Hola DJ FREY, quiero una cotización sobre el paquete Estandar.";
+  const whatsappUrl1 = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
+    message1
+  )}`;
+  const whatsappUrl2 = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
+    message2
+  )}`;
   return (
     <section id={id} className="services-section">
       <div className="services-container">
@@ -29,7 +40,14 @@ const Services = ({ id }) => {
             </ul>
             <div className="card-footer">
               <span className="service-price">S/300</span>
-              <button className="service-button">Cotizar</button>
+              <a
+                href={whatsappUrl1}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="service-button"
+              >
+                Cotizar
+              </a>
             </div>
           </div>
 
@@ -55,11 +73,16 @@ const Services = ({ id }) => {
             </ul>
             <div className="card-footer">
               <span className="service-price">S/550</span>
-              <button className="service-button">Cotizar</button>
+              <a
+                href={whatsappUrl2}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="service-button"
+              >
+                Cotizar
+              </a>
             </div>
           </div>
-
-          {/* Puedes añadir más tarjetas aquí... */}
         </div>
       </div>
     </section>
